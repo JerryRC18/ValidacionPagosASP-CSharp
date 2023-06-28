@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SSP2.Models.Folio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Folios</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Agregar nuevo folio</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Numero
+            </th>
+            <th>
+                NUA/NUE
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FolNumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FolNu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FolFecha)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.FolId">Edit</a> |
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.FolId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.FolId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
